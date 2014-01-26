@@ -1,0 +1,24 @@
+WAF_USE_BUNDLED=1
+inherit python qt4 waf
+
+NAME="semantik"
+VERSION=0.9.1
+RELEASE=1
+CATEGORY="Office"
+SUMMARY="KDE mind-mapping tool"
+DESCRIPTION="Semantik (formerly kdissert) is a mind-mapping tool that helps
+creating documents such as reports or presentations."
+HOMEPAGE="https://code.google.com/p/semantik/"
+SRC_URI="https://semantik.googlecode.com/files/semantik-${VERSION}.tar.bz2"
+PATCH_URI="
+	0.9.1-cygwin.patch
+	0.9.1-no-undefined.patch
+"
+
+src_install() {
+	cd ${B}
+	waf_install
+
+	rm -f ${D}/usr/bin/*.a
+	mv ${D}/usr/lib/*.dll ${D}/usr/bin/
+}

@@ -1,0 +1,16 @@
+This symbol is actually defined elsewhere in the code, but those
+go into the executables and this is needed for the common library
+
+--- origsrc/semantik-0.9.1/src/fig/box_item.cpp	2014-01-06 11:03:44.000000000 -0600
++++ src/semantik-0.9.1/src/fig/box_item.cpp	2014-01-25 23:42:32.001373500 -0600
+@@ -23,6 +23,10 @@
+ 
+ #define PAD 2
+ 
++int grid_int(int x) {
++        return GRID * (x / GRID);
++}
++
+ box_item::box_item(box_view* i_oParent, int i_iId) : QGraphicsRectItem(), connectable(), editable(), m_oView(i_oParent)
+ {
+ 	m_iId = i_iId;

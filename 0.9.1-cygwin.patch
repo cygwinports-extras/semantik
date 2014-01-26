@@ -1,0 +1,15 @@
+Cygwin != Win32
+
+--- origsrc/semantik-0.9.1/wscript	2014-01-14 14:34:12.000000000 -0600
++++ src/semantik-0.9.1/wscript	2014-01-25 23:48:03.754348600 -0600
+@@ -110,7 +110,9 @@ def configure(conf):
+ 		Logs.pprint('GREEN', "You are using Linux, that's good (tm)")
+ 	elif (test('bsd')):
+ 		Logs.pprint('GREEN', "You are using a BSD system, that's good (tm)")
+-	elif (test('win32') or test('cygwin')):
++	elif (test('cygwin')):
++		Logs.pprint('GREEN', "You are using a Cygwin system, that's good (tm)")
++	elif (test('win32')):
+ 		conf.fatal(err % "win32")
+ 	elif (test('darwin')):
+ 		conf.fatal(err % "osx")
